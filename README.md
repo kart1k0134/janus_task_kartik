@@ -1,1 +1,0 @@
-# janus_task_kartik
