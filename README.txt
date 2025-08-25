@@ -3,9 +3,9 @@ Below is a brief overview of how each question was tackled.
 
 
 *files included:
-1)
-2)
-3)
+1)task1_kartik_2025ADPS0134H
+2)updated_task2cide_kartik_2025ADPS0134H
+3)task2_kartik_2025ADPS0134H
 4)README.txt
 
 
