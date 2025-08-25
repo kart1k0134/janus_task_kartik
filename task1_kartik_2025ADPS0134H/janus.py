@@ -3,13 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-# loads data
+# loads data from csv file using pandas library 
 
 FILE = "Raw_Test_Flight_Data_25.csv"
 COL = "Pressure (Pa)"
 dt = 1.0  # time delay
 
-# reads CSV
+# reads CSV file
 
 df = pd.read_csv(FILE)
 pressure = pd.to_numeric(df[COL], errors="coerce").fillna(
@@ -21,7 +21,7 @@ time = np.arange(len(pressure)) * dt
 P0, T0, g, M, R = 101325, 288.15, 9.80665, 0.0289644, 8.3144598
 altitude = (T0 * R / (M * g)) * np.log(P0 / pressure)
 
-# smooths the graph by taking average
+# smooths the graph by taking average because the data obtained from the raw file and calculations provides a cary ragged graph
 
 
 def moving_avg(arr, window=5):
@@ -30,15 +30,15 @@ def moving_avg(arr, window=5):
 
 alt_smooth = moving_avg(altitude, window=5)
 
-# computes velocity
+# computes velocity with the help of numpy library 
 
 velocity = np.gradient(alt_smooth, dt)
 
-# animated graph setup
+# animated graph setup with the help of matplotlib
 
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
 
-# plots data
+# plots data using matplotlib 
 
 ax1.set_title("Altitude vs Time (Smoothed)")
 ax1.set_ylabel("Altitude (m)")
@@ -68,9 +68,11 @@ def update(i):
     vel_line.set_data(time[:i], velocity[:i])
     return alt_line, vel_line
 
+#sets time interval
 
 ani = FuncAnimation(fig, update, init_func=init, frames=len(
     time), interval=400, blit=True, repeat=False)
 
 plt.tight_layout()
 plt.show()
+
