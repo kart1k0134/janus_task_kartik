@@ -42,7 +42,7 @@ Reed intends to detonate a bomb directly upward towards Galactus' face and deton
 
 -> Features
 - Smoothes out noisy sensor data with a rolling average.
-- Shows **animated graphs** for improved visualization.
+- Shows animated graphs for improved visualization.
 - Properly handles missing or corrupted pressure readings.
 
 ->libraries used
